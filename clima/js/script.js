@@ -40,5 +40,5 @@ function showInfo(dados){
     
     document.querySelector('.titulo').innerHTML = `${dados.name}, ${dados.country}`;
     document.querySelector('.tempInfo').innerHTML = `${dados.temp} <sup>ºC</sup>`;
-    document.querySelector('.titulo').innerHTML =
+    document.querySelector('.titulo').innerHTML = 
 }
