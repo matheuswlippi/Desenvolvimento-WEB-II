@@ -19,6 +19,7 @@ document.querySelector('.busca').addEventListener('submit', async(event) => {
                 climaTexto: json.weather[0].description,
                 windSpeed: json.wind.speed,
                 windAngle: json.wind.deg,
+                temp: json.main.temp
             });
         } else{
             showWarning('Não encontramos esta Localização');
@@ -40,5 +41,10 @@ function showInfo(dados){
     
     document.querySelector('.titulo').innerHTML = `${dados.name}, ${dados.country}`;
     document.querySelector('.tempInfo').innerHTML = `${dados.temp} <sup>ºC</sup>`;
-    document.querySelector('.titulo').innerHTML =
+    document.querySelector('.ventoInfo').innerHTML = `${dados.windSpeed}<span>KM/h</span>`;
+    document.querySelector('.temp img').setAttribute('src', `http://openweathermap.org/img/wn/${dados.climaIcon}@2x.png`);
+    document.querySelector('.climaTitulo').innerHTML = `${dados.climaTexto}`;
+    document.querySelector('.ventoPonto').style.transform = `rotate(${dados.windAngle-90}deg)`; 
+
+    document.querySelector('.resultado').style.display = 'block';
 }
